@@ -1,0 +1,89 @@
+<app-nav></app-nav>
+<div class="card-deck d-flex justify-content-center mt-5 mb-2 w-100">
+    <div class="card border-info mb-3 text-center" style="max-width: 25rem;">
+        <div class="card-header">Registrarse como:</div>
+        <div class="card-body text-info">
+          <a class="btn btn-info mt-2 mb-2 mr-2" (click)="seSeleccionoUsuario('paciente')" 
+          [ngStyle]="{'background-color': usuarioSeleccionado == 'paciente' ? '#4b8f1f' : '#17a2b8'}">Paciente</a>
+          <a class="btn btn-info mt-2 mb-2 ml-2" (click)="seSeleccionoUsuario('especialista')"
+          [ngStyle]="{'background-color': usuarioSeleccionado == 'especialista' ? '#4b8f1f' : '#17a2b8'}">Especialista</a>
+        </div>
+      </div>
+</div>
+<div class="d-flex justify-content-center align-items-center" >
+  <div class="d-grid justify-content-center align-items-center mt-2 mr-2">
+      <div class="d-flex justify-content-center align-items-center">
+        <img src="{{this.imageToUpload}}" alt="" width="100px" style="margin-bottom: 10px; border-radius: 50px;">
+      </div>
+      <input type="file" accept=".png,.jpg" id="inputImg" class="input-file" (change)="uploadImage($event, 'imageToUpload')">
+      <label class="labelInputImg d-flex justify-content-center align-items-center" for="inputImg">{{this.imageToUpload ? 'Cambiar Imagen': 'Subir Imagen'}}</label>
+  </div>
+  <div class="d-grid justify-content-center align-items-center mt-2 ml-2" *ngIf="usuarioSeleccionado == 'paciente'">
+      <div class="d-flex justify-content-center align-items-center">
+          <img src="{{this.imageToUpload2}}" alt="" width="100px" style="margin-bottom: 10px; border-radius: 50px;">
+      </div>
+      <input type="file" accept=".png,.jpg" id="inputImg2" class="input-file" (change)="uploadImage($event, 'imageToUpload2')">
+      <label class="labelInputImg d-flex justify-content-center align-items-center" for="inputImg2">{{this.imageToUpload2 ? 'Cambiar Imagen': 'Subir Imagen'}}</label>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+    <form [formGroup]="formRegister" (submit)='registrar()'>
+        <div class="row">
+          <div class="col">
+            <label for="inputNombre">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+          </div>
+          <div class="col">
+            <label for="inputApellido">Apellido</label>
+            <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <label for="inputEdad">Edad</label>
+              <input type="numer" class="form-control" formControlName="edad" placeholder="Edad">
+            </div>
+            <div class="col">
+              <label for="inputDni">DNI</label>
+              <input type="number" class="form-control" formControlName="dni" placeholder="DNI">
+            </div>
+          </div>
+        <div class="row">
+            <div class="col">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail4" formControlName="email" placeholder="Email">
+            </div>
+            <div class="col">
+              <label for="inputPassword">Contraseña</label>
+              <input type="password" class="form-control" id="inputPassword4" formControlName="password" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="row"  *ngIf="usuarioSeleccionado == 'paciente'">
+            <div class="col">
+              <label for="inputEdad">Obra social</label>
+              <input type="text" class="form-control" placeholder="Obra social" formControlName="obraSocial">
+            </div>
+          </div>  
+          <div class="row form-row" *ngIf="usuarioSeleccionado == 'especialista'">
+            <div class="col form-group">
+              <label for="inputEspecialidad">Especialidad</label>
+              <select id="inputEspecialidad" class="form-control">
+                <option selected value="ginecologia">Ginecologia</option>
+                <option value="pediatria">Pediatria</option>
+                <option value="odontologia">Odontologia</option>
+                <option value="obstreticia">Obstreticia</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <button type="submit" class="btn btn-info">Registrar</button>
+          </div>
+      </form>
+</div>
+<div *ngIf="loading" style="width: 100vw; height: 100vh; display: flex; position: fixed;
+  top: 0; left: 0; background-color: #198754ad; justify-content: center; align-items: center;">
+  <div>
+    <img src="../../../assets/logoPng.png" alt="" width="80px" class="loading">
+  </div>
+</div>

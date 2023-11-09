@@ -1,0 +1,23 @@
+
+.banner{
+    background: linear-gradient(336deg,rgb(124, 223, 223),rgb(240, 167, 167));
+    width: 87%; 
+    height: 30rem;
+   
+    border-radius: 15px;
+}
+.divLogo{
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+}
+.divLogo>img{
+    margin: 0.5rem;
+    position: absolute;
+    height: 60px;
+}
+
+.imgpubli{
+    border-radius: 20px;
+    height: 300px;
+}

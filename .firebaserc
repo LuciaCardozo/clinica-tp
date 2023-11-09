@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-clinica-lcardozo": {
+      "hosting": {
+        "portafolio-angular": [
+          "tp-clinica-lcardozo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-clinica-lcardozo"
+  }
+}

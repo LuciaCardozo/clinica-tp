@@ -1,0 +1,16 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let carousel of carousels">
+      <div class="picsum-img-wrapper d-flex justify-content-center mt-5">
+        <div class="banner">
+          <div class="divLogo">
+            <img src="../../../assets/imgs/logoClinicaUTN.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-caption" style="color:black">
+        <img class="imgpubli" src={{carousel.img}} alt="">
+        <h3>{{carousel.name}}</h3>
+        <p>{{carousel.description}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>

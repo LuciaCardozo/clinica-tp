@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+<div class="container d-flex justify-content-start align-items-center" >
+  <div class="divRegister" style="background-color: rgba(0, 85, 128, 0.735); width: 80%; height: 50%; position: absolute;">
+    <div class="divRegisterDos">
+      <h4 style="color: white;">¿No tienes cuenta?</h4>
+      <button class="btn btn-dark btn-small m-1" routerLink="/register">Registrate</button>
+    </div>
+  </div>
+  <div style="background-color: rgb(213, 230, 213); width: 40%; height: 80%; position: absolute; margin-left: 60px; border-radius: 25px;">
+    <form class="form" [formGroup]="form" (click)='login()'>
+      <div class="divForm card col-md-8 mx-auto">
+        <h1 class="text-center mt-3">Iniciar Sesión</h1>
+        <div class="m-2">
+          <input formControlName="mail" type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="m-2">
+          <input formControlName="password" type="password" class="form-control" placeholder="Contraseña">
+        </div>
+        <div class="m-2">
+          <button class="btn btn-info btn-lg btn-block m-1" type="submit">Ingresar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="loading" style="width: 100vw; height: 100vh; display: flex; position: fixed;
+  top: 0; left: 0; background-color: #198754ad; justify-content: center; align-items: center;">
+  <div>
+    <img src="../../../assets/logoPng.png" alt="" width="80px" class="loading">
+  </div>
+</div>

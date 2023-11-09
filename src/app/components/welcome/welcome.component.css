@@ -1,0 +1,9 @@
+a{
+    font-weight: bolder;
+}
+
+form>button{
+    text-decoration: underline;
+    font-weight: bolder;
+    color: white;
+}

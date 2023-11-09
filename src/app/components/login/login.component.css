@@ -1,0 +1,33 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.divForm{
+    margin-top: 25%;
+    background-color: rgba(255, 255, 255, 0.596);
+    border-radius: 30px;
+}
+
+.divRegister{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.divRegisterDos{
+    margin-right: 80px;
+}
+
+.loading{
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%   {transform: rotateY(150deg);}
+    50%  {transform: rotateY(0deg);}
+    100% {transform: rotateY(150deg);}
+    50%  {transform: rotateY(0deg);}
+  }
